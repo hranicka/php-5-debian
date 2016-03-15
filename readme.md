@@ -11,7 +11,7 @@ Please note that these are very simple scripts that don't implement error checki
 
 ## Usage
 
-	$ git clone https://github.com/kasparsd/php-7-debian.git
+	$ git clone https://github.com/hranicka/php-7-debian.git
 	$ cd php-7-debian
 	$ ./build.sh
 	$ sudo ./install.sh
@@ -109,6 +109,9 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 
 	[Zend Modules]
 	Zend OPcache
+	
+	[PECL]
+	APCu
 
 ## Installing Memcached Extension
 
