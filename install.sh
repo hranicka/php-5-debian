@@ -7,6 +7,9 @@ mkdir /usr/local/php7/etc/conf.d
 # Symlink php-fpm to php7-fpm
 ln -s /usr/local/php7/sbin/php-fpm /usr/local/php7/sbin/php7-fpm
 
+# Install PECL
+/usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf install apcu
+
 # Add config files
 cp php-src/php.ini-production /usr/local/php7/lib/php.ini
 cp conf/www.conf /usr/local/php7/etc/php-fpm.d/www.conf
