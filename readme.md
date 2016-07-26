@@ -2,8 +2,8 @@
 
 These are a set of bash scripts for building and running PHP 7 (CLI and FPM) on Debian based Linux distributions:
 
-- `build.sh` installs the necessary build dependencies and the latest development version of PHP with CLI and FPM server APIs (SAPI) from the `PHP-7.x.x` branch of https://github.com/php/php-src
- 
+- `build.sh` installs the necessary build dependencies and the latest development version of PHP with CLI and FPM server APIs (SAPI) from the latest PHP 7 branch of https://github.com/php/php-src
+
 - `install.sh` sets up PHP-FPM by moving configuration files into their correct locations in `/usr/local/php7` and enables the `php7-fpm` service and adds it to the startup sequence.
 
 Please note that these are very simple scripts that don't implement error checking or process validation.
@@ -28,17 +28,18 @@ while the FPM socket is available at
 	127.0.0.1:9007
 
 and PHP CLI:
-	
+
 	$ /usr/local/php7/bin/php -v
 	PHP 7.0.9 (cli) (built: Jun 23 2016 20:58:06) ( NTS )
 	Copyright (c) 1997-2016 The PHP Group
 	Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
 		with Zend OPcache v7.0.9, Copyright (c) 1999-2016, by Zend Technologies
 
+
 ## Configuration files
 
 All PHP configuration files are stored under `/usr/local/php7`:
-	
+
 	/usr/local/php7/lib/php.ini
 	/usr/local/php7/etc/php-fpm.conf
 	/usr/local/php7/etc/php-fpm.d/www.conf
@@ -47,6 +48,7 @@ All PHP configuration files are stored under `/usr/local/php7`:
 while the Debian init script is added to:
 
 	/etc/init.d/php7-fpm
+
 
 ## Extensions
 
@@ -116,33 +118,26 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 	[PECL]
 	APCu
 
-## Installing Memcached Extension
 
-[Memcached extension for PHP](https://github.com/php-memcached-dev/php-memcached) already supports PHP 7. First you install the dependencies:
+## Installing Extensions
 
-	$ sudo apt-get install libmemcached-dev libmemcached11
-	
-and then build and install the extension:
+Please note that you need to restart `php7-fpm` to activate the extension.
 
-	$ git clone https://github.com/php-memcached-dev/php-memcached
-	$ cd php-memcached
-	$ git checkout -b php7 origin/php7
+### Install the Memcached Extension
 
-	$ /usr/local/php7/bin/phpize
-	$ ./configure --with-php-config=/usr/local/php7/bin/php-config
-	$ make
-	$ sudo make install
+	$ ./php-7-debian/extensions
+	$ ./memcached-build.sh
+	$ ./memcached-install.sh
 
-and then append `extension=memcached.so` to `/usr/local/php7/etc/conf.d/modules.ini`:
+### Install the Imagick Extension
 
-	# Zend OPcache
-	zend_extension=opcache.so
-	
-	# Memcached
-	extension=memcached.so
+	$ cd php-7-debian/extensions
+	$ ./imagick-build.sh
+	$ ./imagick-install.sh
 
 
 ## Credits
 
 - Created by [Kaspars Dambis](http://kaspars.net)
-- Based on [`php7.sh`](https://gist.github.com/tvlooy/953a7c0658e70b573ab4) by [Tom Van Looy](http://www.intracto.com/nl/blog/running-symfony2-on-php7) 
+- Contributors: [Piotr Plenik](https://github.com/jupeter)
+- Based on [`php7.sh`](https://gist.github.com/tvlooy/953a7c0658e70b573ab4) by [Tom Van Looy](http://www.intracto.com/nl/blog/running-symfony2-on-php7)
