@@ -11,13 +11,20 @@ Please note that these are very simple scripts that don't implement error checki
 
 ## Usage
 
-	$ cd /tmp
-	$ git clone https://github.com/hranicka/php-7-debian.git
-	$ cd php-7-debian
-	$ ./build.sh
-	$ sudo ./install.sh
+	cd /tmp
+	git clone https://github.com/hranicka/php-7-debian.git
+	cd php-7-debian
+	./build.sh
 
-If you need only an **update**, usage is the same but just replace `sudo ./install.sh` with `sudo ./update.sh`.
+### Install
+
+	sudo ./install.sh
+
+### Update only
+
+	sudo ./update.sh
+
+## About installation
 
 The PHP-FPM can be operated using the `php7-fpm` init script:
 
@@ -29,7 +36,7 @@ while the FPM socket is available at
 
 and PHP CLI:
 
-	$ /usr/local/php7/bin/php -v
+	/usr/local/php7/bin/php -v
 	PHP 7.0.9 (cli) (built: Jun 23 2016 20:58:06) ( NTS )
 	Copyright (c) 1997-2016 The PHP Group
 	Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
@@ -125,16 +132,20 @@ Please note that you need to restart `php7-fpm` to activate the extension.
 
 ### Install the Memcached Extension
 
-	$ ./php-7-debian/extensions
-	$ ./memcached-build.sh
-	$ ./memcached-install.sh
+	cd php-7-debian/extensions
+	./memcached-build.sh
+	./memcached-install.sh
 
 ### Install the Imagick Extension
 
-	$ cd php-7-debian/extensions
-	$ ./imagick-build.sh
-	$ ./imagick-install.sh
+	cd php-7-debian/extensions
+	./imagick-build.sh
+	./imagick-install.sh
 
+### After installation
+
+	cd ..
+	sudo ./update.sh
 
 ## Credits
 
