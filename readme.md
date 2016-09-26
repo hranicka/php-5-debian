@@ -126,6 +126,11 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 	APCu
 
 
+## Shortcuts
+
+	sudo ln -s /usr/local/php5/bin/php /usr/bin/php5
+
+
 ## Installing Extensions
 
 Please note that you need to restart `php5-fpm` to activate the extension.
