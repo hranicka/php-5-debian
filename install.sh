@@ -3,6 +3,7 @@ cd "$(dirname "$0")"
 
 # Create a dir for storing PHP module conf
 mkdir /usr/local/php5/etc/conf.d
+mkdir /usr/local/php5/etc/php-fpm.d
 
 # Symlink php-fpm to php5-fpm
 ln -s /usr/local/php5/sbin/php-fpm /usr/local/php5/sbin/php5-fpm
