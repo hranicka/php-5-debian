@@ -8,11 +8,11 @@ sudo apt-get install -y \
 
 git clone https://github.com/phpredis/phpredis.git
 cd phpredis
-git checkout php7
+git checkout master
 git pull
 
-/usr/local/php7/bin/phpize
-./configure --with-php-config=/usr/local/php7/bin/php-config
+/usr/local/php5/bin/phpize
+./configure --with-php-config=/usr/local/php5/bin/php-config
 
 make
 sudo make install
