@@ -19,7 +19,8 @@ sudo apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libpspell-dev \
-    libreadline-dev
+    libreadline-dev \
+    re2c
 
 sudo mkdir /usr/local/php5
 
