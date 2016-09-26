@@ -24,7 +24,6 @@ sudo apt-get install -y \
 
 # https://bugs.php.net/bug.php?id=69055
 sudo apt-get purge bison
-
 sudo apt-get install -y build-essential m4
 
 wget http://ftp.gnu.org/gnu/bison/bison-2.7.tar.gz
@@ -39,6 +38,8 @@ sudo make install
 
 sudo ln -sf /usr/local/bison/bin/bison /usr/bin/bison
 sudo ln -sf /usr/local/bison/bin/yacc /usr/bin/yacc
+
+cd ..
 
 
 sudo mkdir /usr/local/php5
