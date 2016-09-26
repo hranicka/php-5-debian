@@ -8,7 +8,7 @@ mkdir /usr/local/php5/etc/conf.d
 ln -s /usr/local/php5/sbin/php-fpm /usr/local/php5/sbin/php5-fpm
 
 # Install PECL
-/usr/local/php5/bin/pecl -C /usr/local/php5/etc/pear.conf install apcu
+/usr/local/php5/bin/pecl -C /usr/local/php5/etc/pear.conf install apcu-4.0.11
 
 # Add config files
 cp php-src/php.ini-production /usr/local/php5/lib/php.ini
