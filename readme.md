@@ -37,10 +37,10 @@ while the FPM socket is available at
 and PHP CLI:
 
 	/usr/local/php5/bin/php -v
-	PHP 5.6.26 (cli) (built: Jun 23 2016 20:58:06) ( NTS )
+	PHP 5.6.27 (cli) (built: Jun 23 2016 20:58:06) ( NTS )
 	Copyright (c) 1997-2016 The PHP Group
 	Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
-		with Zend OPcache v5.6.26, Copyright (c) 1999-2016, by Zend Technologies
+		with Zend OPcache v5.6.27, Copyright (c) 1999-2016, by Zend Technologies
 
 
 ## Configuration files
