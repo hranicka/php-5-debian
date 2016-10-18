@@ -9,6 +9,9 @@ mkdir /usr/local/php5/etc/php-fpm.d
 ln -s /usr/local/php5/sbin/php-fpm /usr/local/php5/sbin/php5-fpm
 
 # Install PECL
+/usr/local/php5/bin/pecl -C /usr/local/php5/etc/pear.conf clear-cache
+/usr/local/php5/bin/pecl -C /usr/local/php5/etc/pear.conf update-channels
+
 /usr/local/php5/bin/pecl -C /usr/local/php5/etc/pear.conf install apcu-4.0.11
 /usr/local/php5/bin/pecl -C /usr/local/php5/etc/pear.conf install ssh2-0.13
 
