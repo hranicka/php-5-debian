@@ -124,6 +124,7 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 	
 	[PECL]
 	APCu
+	SSH2
 
 
 ## Shortcuts
