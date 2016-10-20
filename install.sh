@@ -27,3 +27,6 @@ chmod +x /etc/init.d/php5-fpm
 update-rc.d php5-fpm defaults
 
 service php5-fpm start
+
+# Add a shortcut
+sudo ln -s /usr/local/php5/bin/php /usr/bin/php5
