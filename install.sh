@@ -22,7 +22,7 @@ cp conf/php-fpm.conf /usr/local/php5/etc/php-fpm.conf
 cp conf/modules.ini /usr/local/php5/etc/conf.d/modules.ini
 
 # Add the init script
-cp conf/php5-fpm.init /etc/init.d/php5-fpm
+cp conf/php-fpm.init /etc/init.d/php5-fpm
 chmod +x /etc/init.d/php5-fpm
 update-rc.d php5-fpm defaults
 
