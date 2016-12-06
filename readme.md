@@ -33,15 +33,7 @@ While the FPM socket is available at:
 
 	127.0.0.1:9006
 
-And PHP CLI:
-
-	/usr/local/php5/bin/php -v
-	PHP 5.6.27 (cli) (built: Jun 23 2016 20:58:06) ( NTS )
-	Copyright (c) 1997-2016 The PHP Group
-	Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
-		with Zend OPcache v5.6.27, Copyright (c) 1999-2016, by Zend Technologies
-
-Executables are located at:
+Executables (also CLI) are located at:
 
 	/usr/local/php5/bin/php
 	/usr/bin/php5
@@ -61,7 +53,7 @@ while the Debian init script is added to:
 
 ## Extensions
 
-Note that most of the third-party PHP extensions are [not yet compatible with PHP 5](https://github.com/gophp5/gophp5-ext/wiki/extensions-catalog) and [Gophp5-ext](http://gophp5.org/) (also on [GitHub](https://github.com/gophp5/gophp5-ext)) is a project to help do that. Here is a list of PHP modules that are enabled by default in this build:
+Here is a list of PHP modules that are enabled by default in this build:
 
 	$ /usr/local/php5/bin/php -m
 	[PHP Modules]
@@ -123,28 +115,22 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 
 	[Zend Modules]
 	Zend OPcache
-	
-	[PECL]
-	APCu
-	SSH2
 
 ## Installing Extensions
 
-Please note that you need to restart `php5-fpm` to activate the extension.
+There are some extensions in `extension` directory.
 
-### Install the Memcached Extension
+You can install them simply with given scripts.
+
+For example Memcached extension:
 
 	cd php-5-debian/extensions
 	./memcached-build.sh
-	./memcached-install.sh
+	sudo ./memcached-install.sh
 
-### Install the Imagick Extension
+After installation there is need to restart some services (fpm).
 
-	cd php-5-debian/extensions
-	./imagick-build.sh
-	./imagick-install.sh
-
-### After installation
+You can done it simply with another script:
 
 	cd ..
 	sudo ./update.sh

@@ -46,7 +46,7 @@ sudo mkdir /usr/local/php5
 
 git clone https://github.com/php/php-src.git
 cd php-src
-git checkout PHP-5.6.27
+git checkout PHP-5.6.28
 git pull
 ./buildconf --force
 
