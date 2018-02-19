@@ -27,9 +27,6 @@ sudo apt-get install -y \
     libreadline-dev \
     re2c
 
-# curl fix (https://github.com/phpbrew/phpbrew/issues/861)
-ln -s /usr/include/x86_64-linux-gnu/curl /usr/local/include/curl
-
 # https://bugs.php.net/bug.php?id=69055
 sudo apt-get purge bison
 sudo apt-get install -y build-essential m4
@@ -98,7 +95,7 @@ CONFIGURE_STRING="--prefix=/usr/local/php5 \
                   --with-fpm-user=www-data \
                   --with-fpm-group=www-data"
 
-./configure "$CONFIGURE_STRING"
+./configure $CONFIGURE_STRING
 
 make -j "$JOB_COUNT"
 sudo make install
