@@ -77,7 +77,6 @@ CONFIGURE_STRING="--prefix=/usr/local/php5 \
                   --with-mysql-sock=/var/run/mysqld/mysqld.sock \
                   --with-mysqli=mysqlnd \
                   --with-pdo-mysql=mysqlnd \
-                  --with-openssl \
                   --enable-pcntl \
                   --with-pspell \
                   --enable-shmop \
