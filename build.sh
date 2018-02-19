@@ -1,6 +1,12 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
+# Use all cores for the build process
+CORE_COUNT=$(cat /proc/cpuinfo | grep -c processor)
+
+# Allow JOB_COUNT environment variable to override the job count
+JOB_COUNT=${JOB_COUNT:-$CORE_COUNT}
+
 # Dependencies
 sudo apt-get update
 sudo apt-get install -y \
@@ -14,6 +20,7 @@ sudo apt-get install -y \
     libicu-dev \
     libssl-dev \
     libcurl4-openssl-dev \
+    libcurl4-gnutls-dev \
     libltdl-dev \
     libjpeg-dev \
     libpng-dev \
@@ -21,6 +28,8 @@ sudo apt-get install -y \
     libreadline-dev \
     re2c
 
+# curl fix (https://github.com/phpbrew/phpbrew/issues/861)
+ln -s /usr/include/x86_64-linux-gnu/curl /usr/local/include/curl
 
 # https://bugs.php.net/bug.php?id=69055
 sudo apt-get purge bison
@@ -46,11 +55,12 @@ sudo mkdir /usr/local/php5
 
 git clone https://github.com/php/php-src.git
 cd php-src
-git checkout PHP-5.6.33
-git pull
+git fetch --tags --prune
+git checkout tags/php-5.6.33
 ./buildconf --force
 
 CONFIGURE_STRING="--prefix=/usr/local/php5 \
+                  --enable-huge-code-pages \
                   --with-config-file-scan-dir=/usr/local/php5/etc/conf.d \
                   --with-pear \
                   --enable-bcmath \
@@ -89,7 +99,7 @@ CONFIGURE_STRING="--prefix=/usr/local/php5 \
                   --with-fpm-user=www-data \
                   --with-fpm-group=www-data"
 
-./configure $CONFIGURE_STRING
+./configure "$CONFIGURE_STRING"
 
-make
+make -j "$JOB_COUNT"
 sudo make install
